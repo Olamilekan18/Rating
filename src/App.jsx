@@ -2,43 +2,29 @@ import './App.css'
 import React,{useState} from 'react';
 
 function App() {
-  // const Rating = () => {
     const [rating, setRating] = useState(0);
-    const [clicked, setClicked] = useState(false);
-
-  
-    const handleMouseOver = (starValue) => {
-      if (!clicked) {
-        setRating(starValue);
-      }
+  // On Click
+  const handleClick = (starValue) => {
+    setRating(starValue);
   };
-  
-    const handleMouseLeave = () => {
-      if (!clicked) {
-        setRating(0);
-      }
-    };
-  
-    const handleClick = (starValue) => {
-      setClicked(true)
-      setRating(starValue);
-    };
-  
+
+  // On hover
+  const handleMouseOver = (starValue) => {
+    setRating(starValue);
+  };
 
   return (
-    <div>
-       <div className="rating" onMouseLeave={handleMouseLeave}>
+    <div className="rating">
       {[1, 2, 3, 4, 5].map((starValue) => (
         <span
           key={starValue}
-          className={clicked || starValue <= rating ? 'star filled' : 'star'}
-          onMouseOver={() => handleMouseOver(starValue)}
+          className={starValue <= rating ? 'star filled' : 'star'}
           onClick={() => handleClick(starValue)}
+          onMouseOver={() => handleMouseOver(starValue)}
         >
           &#9733;
         </span>
       ))}
-    </div>
     </div>
   );
 }
