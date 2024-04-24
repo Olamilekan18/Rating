@@ -8,18 +8,20 @@ function App() {
 
   
     const handleMouseOver = (starValue) => {
-      if(!clicked){
-      setRating(starValue);
-    }
+      if (!clicked) {
+        setRating(starValue);
+      }
   };
   
     const handleMouseLeave = () => {
-      setRating(0);
+      if (!clicked) {
+        setRating(0);
+      }
     };
   
     const handleClick = (starValue) => {
-      setRating(starValue);
       setClicked(true)
+      setRating(starValue);
     };
   
 
@@ -29,7 +31,7 @@ function App() {
       {[1, 2, 3, 4, 5].map((starValue) => (
         <span
           key={starValue}
-          className={starValue <= rating ? 'star filled' : 'star'}
+          className={clicked || starValue <= rating ? 'star filled' : 'star'}
           onMouseOver={() => handleMouseOver(starValue)}
           onClick={() => handleClick(starValue)}
         >

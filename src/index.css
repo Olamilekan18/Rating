@@ -43,7 +43,7 @@ h1 {
   cursor: pointer;
 }
 
-.star.filled, .star:hover {
+.star.filled {
   color: gold;
 }
 
