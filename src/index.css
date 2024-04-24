@@ -34,6 +34,23 @@ h1 {
   font-size: 3.2em;
   line-height: 1.1;
 }
+.rating {
+  font-size: 24px;
+}
+
+.star {
+  color: #fff;
+  cursor: pointer;
+}
+
+.star.filled {
+  color: gold;
+}
+
+.star:hover {
+  transform: scale(1.2);
+}
+
 
 button {
   background: transparent;
